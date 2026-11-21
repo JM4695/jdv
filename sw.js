@@ -19,3 +19,8 @@ self.addEventListener('notificationclick', (event) => {
     return self.clients.openWindow(url);
   }));
 });
+
+// 앱 설치(홈 화면 아이콘)용. 오프라인 캐시는 하지 않고 네트워크 그대로 쓴다(장부는 늘 서버 최신이어야 함)
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
+self.addEventListener('fetch', () => {});
