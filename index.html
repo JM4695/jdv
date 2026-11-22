@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0F1114" media="(prefers-color-scheme: dark)" />
-    <!-- 다크·라이트 둘 다 직접 그린다고 알린다. 없으면 폰 크롬의 "웹페이지 강제 다크"가 색을 덮어써 아이콘·버튼 파랑이 탁해진다 -->
-    <meta name="color-scheme" content="light dark" />
+    <!-- 처음엔 어둡게(시작 애니메이션 동안 브라우저 밑바탕도 어둡게), 애니메이션이 끝나면 "light dark" 로 바꿔 기기 테마를 따른다 -->
+    <meta name="color-scheme" content="dark" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png?v=2" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2" />
@@ -22,9 +22,9 @@
         }
       } catch (error) { /* 저장소 막힘: 기기 설정을 따른다 */ }
     </script>
-    <style>html{background:#e9ecef}@media (prefers-color-scheme:dark){html:not([data-theme=light]){background:#0f1114}}html[data-theme=dark]{background:#0f1114}html[data-theme=light]{background:#e9ecef}html:has(#boot-intro){background:#0f1114!important}body{margin:0}.boot{place-items:center;display:grid;position:fixed;inset:0}.boot img{border-radius:22px;width:84px;height:84px;animation:.5s cubic-bezier(.2,.8,.2,1) both boot-in}@keyframes boot-in{0%{opacity:0;transform:scale(.88)}to{opacity:1;transform:none}}#boot-intro{z-index:50;background:#0f1114;transition:opacity .4s .1s}#boot-intro .boot-dial{width:229px;height:229px;clip-path:path("M229.0 114.5 L228.7 139.4 L227.9 152.8 L226.5 163.7 L224.6 173.1 L222.2 181.3 L219.2 188.7 L215.6 195.4 L211.4 201.4 L206.7 206.7 L201.4 211.4 L195.4 215.6 L188.7 219.2 L181.3 222.2 L173.1 224.6 L163.7 226.5 L152.8 227.9 L139.4 228.7 L114.5 229.0 L89.6 228.7 L76.2 227.9 L65.3 226.5 L55.9 224.6 L47.7 222.2 L40.3 219.2 L33.6 215.6 L27.6 211.4 L22.3 206.7 L17.6 201.4 L13.4 195.4 L9.8 188.7 L6.8 181.3 L4.4 173.1 L2.5 163.7 L1.1 152.8 L0.3 139.4 L0.0 114.5 L0.3 89.6 L1.1 76.2 L2.5 65.3 L4.4 55.9 L6.8 47.7 L9.8 40.3 L13.4 33.6 L17.6 27.6 L22.3 22.3 L27.6 17.6 L33.6 13.4 L40.3 9.8 L47.7 6.8 L55.9 4.4 L65.3 2.5 L76.2 1.1 L89.6 0.3 L114.5 0.0 L139.4 0.3 L152.8 1.1 L163.7 2.5 L173.1 4.4 L181.3 6.8 L188.7 9.8 L195.4 13.4 L201.4 17.6 L206.7 22.3 L211.4 27.6 L215.6 33.6 L219.2 40.3 L222.2 47.7 L224.6 55.9 L226.5 65.3 L227.9 76.2 L228.7 89.6 Z");background:#2766de;animation:.45s cubic-bezier(.3,0,.2,1) .15s both boot-shrink;overflow:hidden}@keyframes boot-shrink{to{transform:scale(.734)}}#boot-intro svg{width:261px;height:261px;margin:-16px;display:block}#boot-intro .boot-dial-open{transition:transform .5s cubic-bezier(.5,0,.2,1)}#boot-intro.open{opacity:0;pointer-events:none}#boot-intro.open .boot-dial-open{transform:scale(1.4)}@media (prefers-reduced-motion:reduce){#boot-intro .boot-dial-open{visibility:hidden}}</style>
+    <style>html{background:#e9ecef}@media (prefers-color-scheme:dark){html:not([data-theme=light]){background:#0f1114}}html[data-theme=dark]{background:#0f1114}html[data-theme=light]{background:#e9ecef}html:has(#boot-intro){--lightningcss-light: !important;--lightningcss-dark:initial!important;color-scheme:dark!important;background:#0f1114!important}body{margin:0}.boot{place-items:center;display:grid;position:fixed;inset:0}.boot img{border-radius:22px;width:84px;height:84px;animation:.5s cubic-bezier(.2,.8,.2,1) both boot-in}@keyframes boot-in{0%{opacity:0;transform:scale(.88)}to{opacity:1;transform:none}}#boot-intro{z-index:50;background:#0f1114;transition:opacity .4s .1s}#boot-intro .boot-dial{width:229px;height:229px;clip-path:path("M229.0 114.5 L228.7 139.4 L227.9 152.8 L226.5 163.7 L224.6 173.1 L222.2 181.3 L219.2 188.7 L215.6 195.4 L211.4 201.4 L206.7 206.7 L201.4 211.4 L195.4 215.6 L188.7 219.2 L181.3 222.2 L173.1 224.6 L163.7 226.5 L152.8 227.9 L139.4 228.7 L114.5 229.0 L89.6 228.7 L76.2 227.9 L65.3 226.5 L55.9 224.6 L47.7 222.2 L40.3 219.2 L33.6 215.6 L27.6 211.4 L22.3 206.7 L17.6 201.4 L13.4 195.4 L9.8 188.7 L6.8 181.3 L4.4 173.1 L2.5 163.7 L1.1 152.8 L0.3 139.4 L0.0 114.5 L0.3 89.6 L1.1 76.2 L2.5 65.3 L4.4 55.9 L6.8 47.7 L9.8 40.3 L13.4 33.6 L17.6 27.6 L22.3 22.3 L27.6 17.6 L33.6 13.4 L40.3 9.8 L47.7 6.8 L55.9 4.4 L65.3 2.5 L76.2 1.1 L89.6 0.3 L114.5 0.0 L139.4 0.3 L152.8 1.1 L163.7 2.5 L173.1 4.4 L181.3 6.8 L188.7 9.8 L195.4 13.4 L201.4 17.6 L206.7 22.3 L211.4 27.6 L215.6 33.6 L219.2 40.3 L222.2 47.7 L224.6 55.9 L226.5 65.3 L227.9 76.2 L228.7 89.6 Z");background:#2766de;animation:.45s cubic-bezier(.3,0,.2,1) .15s both boot-shrink;overflow:hidden}@keyframes boot-shrink{to{transform:scale(.734)}}#boot-intro svg{width:261px;height:261px;margin:-16px;display:block}#boot-intro .boot-dial-open{transition:transform .5s cubic-bezier(.5,0,.2,1)}#boot-intro.open{opacity:0;pointer-events:none}#boot-intro.open .boot-dial-open{transform:scale(1.4)}@media (prefers-reduced-motion:reduce){#boot-intro .boot-dial-open{visibility:hidden}}</style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" media="print" onload="this.media='all'" />
-    <script type="module" crossorigin src="/jdv/assets/index-CZ7wWuS8.js"></script>
+    <script type="module" crossorigin src="/jdv/assets/index-0n91B9ak.js"></script>
     <link rel="stylesheet" crossorigin href="/jdv/assets/index-BPLViGUp.css">
   </head>
   <body>
@@ -34,7 +34,7 @@
       setTimeout(function () {
         var intro = document.getElementById("boot-intro");
         intro.classList.add("open");
-        setTimeout(function () { intro.remove(); window.jdvIntroDone = true; window.dispatchEvent(new Event("jdv:intro-done")); }, 550);
+        setTimeout(function () { intro.remove(); document.querySelector('meta[name="color-scheme"]').setAttribute("content", "light dark"); window.jdvIntroDone = true; window.dispatchEvent(new Event("jdv:intro-done")); }, 550);
       }, 2300);
     </script>
   </body>
